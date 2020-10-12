@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:  
+  labels:
+    app: api-proxy-svc
+  name: api-proxy-svc
+  namespace: cache-dev
+spec:
+  ports:
+  - port: 7006
+    protocol: TCP
+    targetPort: 7006
+  selector:
+    app: api-proxy-pod
+  type: ClusterIP

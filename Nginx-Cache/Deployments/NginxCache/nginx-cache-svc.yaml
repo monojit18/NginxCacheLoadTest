@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:  
+  labels:
+    app: nginx-cache-svc
+  name: nginx-cache-svc
+  namespace: cache-dev
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx-cache-pod
+  type: ClusterIP

@@ -1,0 +1,22 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: nginx-cache-netpol
+  namespace: cache-dev
+spec:
+  podSelector:
+    matchLabels:
+      app: api-proxy-pod
+  policyTypes:
+  - Ingress
+  ingress:
+  - ports:
+    - protocol: TCP
+      port: 7006
+    from:
+      - namespaceSelector:
+          matchLabels:
+            name: cache-dev
+      - podSelector:
+          matchLabels:
+            app: nginx-cache-pod

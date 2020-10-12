@@ -1,0 +1,19 @@
+/*docker run --name nginx-cache-test -v /Users/monojitdattams/nginx-server-block.conf:/opt/bitnami/nginx/conf/server_blocks/nginx-server-block.conf:ro -p 8080:8080 -d bitnami/nginx:latest
+
+docker run --name nginx-cache-test -v /Users/monojitdattams/test-nginx.conf:/etc/nginx/nginx.conf:ro -p 8080:8080 -d bitnami/nginx:latest
+
+
+docker run --name nginx-cache-test \
+-v /Users/monojitdattams/Development/Projects/Nginx-Cache/test-nginx.conf:/etc/nginx/nginx.conf:ro \
+-p 8080:80 -d nginx
+
+docker run --name nginx-cache-test \
+-v /Users/monojitdattams/Development/Projects/Nginx-Cache/test-nginx.conf:/opt/bitnami/nginx/conf/server_blocks/test-nginx.conf:ro \
+-p 8080:8080 -d bitnami/nginx:latest */
+
+
+
+docker run --name nginx-cache-test \
+-v /Users/monojitdattams/Development/Projects/Nginx-Cache/test-nginx.conf:/etc/nginx/nginx.conf:ro \
+-v /Users/monojitdattams/Development/Projects/Nginx-Cache/Cache:/var/cache/nginx:rw \
+-p 8080:80 -d nginx:alpine

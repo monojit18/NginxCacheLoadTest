@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  labels:
+    app: nginx-cache-deploy
+  name: nginx-cache-deploy
+  namespace: cache-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-cache-pod
+  strategy: {}
+  template:
+    metadata:      
+      labels:
+        app: nginx-cache-pod
+    spec:
+      containers:
+      - image: nginx:1.19.0-alpine
+        name: nginx-cache-app        
+        resources:
+         requests:
+          cpu: "1.5"
+          memory: 500Mi
+         limits:
+          cpu: "2.5"
+          memory: 1500Mi
+        volumeMounts:
+        - name: nginx-cache-vol
+          mountPath: /var/cache/nginx
+        - name: nginx-conf-vol
+          mountPath: /etc/nginx
+      volumes:
+      - name: nginx-cache-vol
+        hostPath:
+          path: /var/cache-host/nginx
+      - name: nginx-conf-vol
+        azureFile:
+          shareName: nginx-cache-fs
+          secretName: cache-storage-secret
+

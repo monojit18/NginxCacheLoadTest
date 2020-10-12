@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  labels:
+    app: api-proxy-deploy
+  name: api-proxy-deploy
+  namespace: cache-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-proxy-pod
+  strategy: {}
+  template:
+    metadata:      
+      labels:
+        app: api-proxy-pod
+    spec:
+      containers:
+      - image: ngnxacr.azurecr.io/apiproxyapp:v1.0.0
+        name: api-proxy-app        
+        resources:
+         requests:
+             cpu: "100m"
+             memory: 150Mi
+         limits:
+             cpu: "200m"
+             memory: 300Mi        
+      imagePullSecrets:
+          - name: cache-acr-secret
+
