@@ -27,7 +27,7 @@ _express.use(BodyParser.urlencoded
 _express.get('/', (req, res) =>
 {
     
-    res.send('This is apibackendapp GET --- root\n');
+    res.send('This is apibackendapp GET\n');
 
 });
 

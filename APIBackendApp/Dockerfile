@@ -1,7 +1,7 @@
 FROM node:10
 
 # Environment varibales
-ENV WORKDIR_PATH=/apibackendapp
+ENV WORKDIR_PATH=/apibackendapp/
 
 # Create app directory
 WORKDIR ${WORKDIR_PATH}

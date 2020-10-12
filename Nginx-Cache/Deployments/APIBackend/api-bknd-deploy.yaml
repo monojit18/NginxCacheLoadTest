@@ -2,33 +2,30 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:  
   labels:
-    app: api-proxy-deploy
-  name: api-proxy-deploy
-  namespace: cache-dev
+    app: api-bknd-deploy
+  name: api-bknd-deploy
+  namespace: bkend-dev
 spec:
   replicas: 20
   selector:
     matchLabels:
-      app: api-proxy-pod
+      app: api-bknd-pod
   strategy: {}
   template:
     metadata:      
       labels:
-        app: api-proxy-pod
+        app: api-bknd-pod
     spec:
       containers:
-      - image: ngnxacr.azurecr.io/apiproxyapp:v1.0.2
-        name: api-proxy-app        
+      - image: ngnxacr.azurecr.io/apibackendapp:v1.0.1
+        name: api-bknd-app        
         resources:
          requests:
              cpu: "100m"
              memory: 150Mi
          limits:
              cpu: "200m"
-             memory: 300Mi
-        env:
-        - name: API_URL
-          value: http://52.146.28.140:7007
+             memory: 300Mi        
       imagePullSecrets:
           - name: cache-acr-secret
 

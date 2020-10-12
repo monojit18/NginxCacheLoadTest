@@ -28,26 +28,41 @@ DotEnv.config();
 _express.get('/', (req, res) =>
 {
     
-    Axios.get(process.env.API_URL)
-    .then((response) =>
-    {
+    // Axios.get(process.env.API_URL)
+    // .then((response) =>
+    // {
 
-        res.send(JSON.stringify(response.data) + '\n');
+    //     res.send(response.data + '\n');
 
-    }).catch((error) =>
-    {
+    // }).catch((error) =>
+    // {
 
-        res.send(error + '\n');
+    //     res.send(error.message + '\n');
 
-    });   
-    
+    // });
+
+    res.send("GET" + "\n");
 
 });
 
 _express.post('/api/post', (req, res) =>
 {
     
-    res.send('This is apiproxyapp POST\n');
+    // Axios.post(process.env.API_URL + "/api/post")
+    // .then((response) =>
+    // {
+
+    //     res.send(response.data + '\n');
+
+    // }).catch((error) =>
+    // {
+
+    //     res.send(error + '\n');
+
+    // });
+
+    res.send("POST" + "\n");
+
 
 });
 

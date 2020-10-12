@@ -1,7 +1,7 @@
 FROM node:10
 
 # Environment varibales
-ENV WORKDIR_PATH=/apiproxyapp
+ENV WORKDIR_PATH=/apiproxyapp/
 
 # Create app directory
 WORKDIR ${WORKDIR_PATH}
