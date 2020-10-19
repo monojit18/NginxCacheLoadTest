@@ -7,7 +7,7 @@ const Axios = require("axios");
 const DotEnv = require("dotenv");
 const FS = require("fs");
 const _express = Express();
-const _httpServer = Http.createServer(_express);
+const _httpServer = Http.createServer(_express); 
 
 _express.use(BodyParser.json
 ({
@@ -28,40 +28,41 @@ DotEnv.config();
 _express.get('/', (req, res) =>
 {
     
-    // Axios.get(process.env.API_URL)
-    // .then((response) =>
-    // {
+    let dt = new Date();
+    Axios.get(process.env.API_URL)
+    .then((response) =>
+    {
 
-    //     res.send(response.data + '\n');
+        res.send(response.data + '\n' + dt.toLocaleTimeString() + '\n');
 
-    // }).catch((error) =>
-    // {
+    }).catch((error) =>
+    {
 
-    //     res.send(error.message + '\n');
+        res.send(error.message + '\n' + dt.toLocaleTimeString() + '\n');
 
-    // });
+    });
 
-    res.send("GET" + "\n");
+    // res.send("GET" + "\n");
 
 });
 
 _express.post('/api/post', (req, res) =>
 {
     
-    // Axios.post(process.env.API_URL + "/api/post")
-    // .then((response) =>
-    // {
+    Axios.post(process.env.API_URL + "/api/post")
+    .then((response) =>
+    {
 
-    //     res.send(response.data + '\n');
+        res.send(response.data + '\n');
 
-    // }).catch((error) =>
-    // {
+    }).catch((error) =>
+    {
 
-    //     res.send(error + '\n');
+        res.send(error + '\n');
 
-    // });
+    });
 
-    res.send("POST" + "\n");
+    // res.send("POST" + "\n");
 
 
 });

@@ -6,7 +6,7 @@ metadata:
   name: api-proxy-deploy
   namespace: cache-dev
 spec:
-  replicas: 20
+  replicas: 1
   selector:
     matchLabels:
       app: api-proxy-pod
@@ -17,7 +17,7 @@ spec:
         app: api-proxy-pod
     spec:
       containers:
-      - image: ngnxacr.azurecr.io/apiproxyapp:v1.0.2
+      - image: ngnxacr.azurecr.io/apiproxyapp:v1.0.5
         name: api-proxy-app        
         resources:
          requests:
@@ -28,7 +28,7 @@ spec:
              memory: 300Mi
         env:
         - name: API_URL
-          value: http://52.146.28.140:7007
+          value: http://40.76.150.1:7007
       imagePullSecrets:
           - name: cache-acr-secret
 

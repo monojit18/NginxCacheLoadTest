@@ -6,7 +6,7 @@ metadata:
   name: api-bknd-deploy
   namespace: bkend-dev
 spec:
-  replicas: 20
+  replicas: 1
   selector:
     matchLabels:
       app: api-bknd-pod
@@ -17,7 +17,7 @@ spec:
         app: api-bknd-pod
     spec:
       containers:
-      - image: ngnxacr.azurecr.io/apibackendapp:v1.0.1
+      - image: ngnxacr.azurecr.io/apibackendapp:v1.0.2
         name: api-bknd-app        
         resources:
          requests:

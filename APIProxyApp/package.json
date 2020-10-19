@@ -1,6 +1,6 @@
 {
   "name": "apiproxyapp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "API Proxy App",
   "main": "apiproxyapp.js",
   "scripts": {
