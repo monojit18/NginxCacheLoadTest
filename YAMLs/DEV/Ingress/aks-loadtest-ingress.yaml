@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: aks-loadtest-ingress
-  namespace: aks-loadtest-dev
+  namespace: aks-lt-dev
   annotations:    
     kubernetes.io/ingress.class: nginx    
     nginx.ingress.kubernetes.io/rewrite-target: /$1    
