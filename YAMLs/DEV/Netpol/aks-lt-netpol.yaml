@@ -1,8 +1,8 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: nginx-cache-netpol
-  namespace: cache-dev
+  name: aks-lt-netpol
+  namespace: aks-lt-dev
 spec:
   podSelector:
     matchLabels:
@@ -16,7 +16,7 @@ spec:
     from:
       - namespaceSelector:
           matchLabels:
-            name: cache-dev
+            name: aks-lt-dev
       - podSelector:
           matchLabels:
-            app: nginx-cache-pod
+            app: api-proxy-pod
