@@ -122,4 +122,3 @@ data:
 metadata:
   name: container-azm-ms-agentconfig
   namespace: kube-system
-  
