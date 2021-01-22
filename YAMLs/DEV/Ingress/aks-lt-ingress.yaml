@@ -14,5 +14,6 @@ spec:
       paths:
       - path: /?(.*)
         backend:
-          serviceName: api-proxy-svc
+          # serviceName: api-proxy-svc
+          serviceName: nginx-cache-svc
           servicePort: 80
