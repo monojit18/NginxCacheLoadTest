@@ -4,7 +4,7 @@ metadata:
   labels:
     app: nginx-cache-deploy
   name: nginx-cache-deploy
-  namespace: cache-dev
+  namespace: aks-lt-dev
 spec:
   replicas: 1
   selector:
@@ -21,22 +21,17 @@ spec:
         name: nginx-cache-app        
         resources:
          requests:
-          cpu: "1.5"
-          memory: 500Mi
+          cpu: "200m"
+          memory: 150Mi
          limits:
-          cpu: "2.5"
-          memory: 1500Mi
+          cpu: "400m"
+          memory: 300Mi
         volumeMounts:
         - name: nginx-cache-vol
-          mountPath: /var/cache/nginx
-        - name: nginx-conf-vol
-          mountPath: /etc/nginx
+          mountPath: /etc/nginx/nginx.conf
+          # subPath: nginx.conf
       volumes:
       - name: nginx-cache-vol
-        hostPath:
-          path: /var/cache-host/nginx
-      - name: nginx-conf-vol
-        azureFile:
-          shareName: nginx-cache-fs
-          secretName: cache-storage-secret
+        configMap:
+          name: nginx-cache-config
 

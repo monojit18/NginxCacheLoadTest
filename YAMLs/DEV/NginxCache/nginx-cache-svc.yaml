@@ -4,7 +4,7 @@ metadata:
   labels:
     app: nginx-cache-svc
   name: nginx-cache-svc
-  namespace: cache-dev
+  namespace: aks-lt-dev
 spec:
   ports:
   - port: 80
