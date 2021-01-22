@@ -13,7 +13,7 @@ data:
 
         upstream api-proxy {
 
-          server api-proxy-svc.svc:80;
+          server api-proxy-svc.aks-lt-dev.svc:80;
 
         }
 
