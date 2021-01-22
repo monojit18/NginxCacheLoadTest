@@ -29,7 +29,7 @@ spec:
         volumeMounts:
         - name: nginx-cache-vol
           mountPath: /etc/nginx/nginx.conf
-          # subPath: nginx.conf
+          subPath: nginx.conf
       volumes:
       - name: nginx-cache-vol
         configMap:
