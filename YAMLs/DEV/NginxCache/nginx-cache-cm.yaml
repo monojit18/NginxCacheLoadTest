@@ -4,7 +4,7 @@ metadata:
   labels:
     app: nginx-cache-config
   name: nginx-cache-config
-  namespace: aks-lt--dev
+  namespace: aks-lt-dev
 data:
   nginx.conf: |
     events {}
