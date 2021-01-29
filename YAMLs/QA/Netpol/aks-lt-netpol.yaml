@@ -2,7 +2,7 @@ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: aks-lt-netpol
-  namespace: aks-lt-dev
+  namespace: aks-lt-qa
 spec:
   podSelector:
     matchLabels:
@@ -14,9 +14,9 @@ spec:
     - protocol: TCP
       port: 80
     from:
-    - namespaceSelector:
-        matchLabels:
-          name: aks-lt-dev
-    - podSelector:
-        matchLabels:
-          app: nginx-cache-pod
+      - namespaceSelector:
+          matchLabels:
+            name: aks-lt-qa
+      - podSelector:
+          matchLabels:
+            app: nginx-cache-pod

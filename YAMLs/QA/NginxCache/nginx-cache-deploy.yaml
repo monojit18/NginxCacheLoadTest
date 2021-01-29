@@ -4,7 +4,7 @@ metadata:
   labels:
     app: nginx-cache-deploy
   name: nginx-cache-deploy
-  namespace: aks-lt-dev
+  namespace: aks-lt-qa
 spec:
   replicas: 1
   selector:
@@ -30,15 +30,8 @@ spec:
         - name: nginx-cache-vol
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
-        - name: nginx-ssl
-          mountPath: /etc/nginx/ssl
-        ports:
-        - containerPort: 80        
       volumes:
       - name: nginx-cache-vol
         configMap:
           name: nginx-cache-config
-      - name: nginx-ssl
-        secret:
-          secretName: aks-lt-tls-secret
 

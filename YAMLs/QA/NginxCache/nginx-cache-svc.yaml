@@ -4,13 +4,12 @@ metadata:
   labels:
     app: nginx-cache-svc
   name: nginx-cache-svc
-  namespace: aks-lt-dev
+  namespace: aks-lt-qa
 spec:
   ports:
   - port: 80
     protocol: TCP
-    name: http
-    targetPort: 80  
+    targetPort: 80
   selector:
     app: nginx-cache-pod
   type: ClusterIP

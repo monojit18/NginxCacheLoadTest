@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: aks-lt-ingress
-  namespace: aks-lt-dev
+  namespace: aks-lt-qa
   annotations:    
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$1
@@ -12,11 +12,11 @@ spec:
   - hosts:
     - "*.internal.wkshpdev.com"
     secretName: aks-lt-tls-secret
-  rules:
-  - host: dev.internal.wkshpdev.com
+  rules:   
+  - host: qa.internal.wkshpdev.com
     http:
       paths:
       - path: /?(.*)
-        backend:
-          serviceName: nginx-cache-svc
-          servicePort: 80
+        backend:          
+          serviceName: api-proxy-svc
+          servicePort: 80  

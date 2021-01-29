@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: nginx-cache-config
+  name: nginx-cache-config
+  namespace: aks-lt-qa
+data:
+  nginx.conf: |
+    events {}
+
+    http {
+
+        upstream api-proxy {
+
+          server api-proxy-svc.aks-lt-qa.svc:80;
+
+        }
+
+        proxy_cache_path /var/cache/nginx keys_zone=mycache:10m max_size=50m loader_threshold=500 loader_files=300 inactive=2m use_temp_path=off;
+        server {
+            
+            proxy_cache mycache;
+            location / {
+                proxy_pass http://api-proxy/;                
+                proxy_cache_valid any 2m;
+            }
+        }
+    }
