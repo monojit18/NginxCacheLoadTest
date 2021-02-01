@@ -1,12 +1,12 @@
-param([Parameter(Mandatory=$false)] [string] $rg = "jmeter-workshop-rg",
-        [Parameter(Mandatory=$false)] [string] $fpath = "/Users/monojitd/Materials/Projects/AKSProjects/LoadTests/NginxCacheLoadTest/Setup",
-[Parameter(Mandatory=$false)] [string] $deployFileName = "aks-lt-appgw-deploy", 
-        [Parameter(Mandatory=$false)] [string] $appgwName = "aks-lt-appgw",
-        [Parameter(Mandatory=$false)] [string] $vnetName = "aks-lt-vnet",
-        [Parameter(Mandatory=$false)] [string] $subnetName = "aks-lt-appgw-subnet",
-        [Parameter(Mandatory=$false)] [string] $backendIPAddress = "187.0.0.200",
-        [Parameter(Mandatory=$false)] [string] $backendPoolHostName = "internal.wkshpdev.com",
-        [Parameter(Mandatory=$false)] [string] $listenerHostName = "wkshpdev.com")
+param([Parameter(Mandatory=$true)] [string] $rg,
+      [Parameter(Mandatory=$true)] [string] $fpath,
+      [Parameter(Mandatory=$true)] [string] $deployFileName,
+      [Parameter(Mandatory=$true)] [string] $appgwName,
+      [Parameter(Mandatory=$true)] [string] $vnetName,
+      [Parameter(Mandatory=$true)] [string] $subnetName,
+      [Parameter(Mandatory=$true)] [string] $backendIPAddress,
+      [Parameter(Mandatory=$true)] [string] $backendPoolHostName,
+      [Parameter(Mandatory=$true)] [string] $listenerHostName)
 
 Test-AzResourceGroupDeployment -ResourceGroupName $rg `
 -TemplateFile "$fpath/AppGW/$deployFileName.json" `
