@@ -194,10 +194,9 @@
                      "unhealthyThreshold": 3,
                      "pickHostNameFromBackendHttpSettings": true,
                      "port": "[parameters('backendPort')]",
-                     "match": {
-                           "body": "",
+                     "match": {                           
                            "statusCodes": [
-                           "200-399"
+                              "200-399"
                         ]
                      }
                   }
