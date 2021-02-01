@@ -13,7 +13,7 @@ spec:
     - "*.internal.wkshpdev.com"
     secretName: aks-lt-tls-secret
   rules:   
-  - host: qa.internal.wkshpdev.com
+  - host: loadtest-qa.internal.wkshpdev.com
     http:
       paths:
       - path: /?(.*)

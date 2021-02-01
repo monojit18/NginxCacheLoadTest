@@ -192,7 +192,7 @@
                      "interval": 30,
                      "timeout": 30,
                      "unhealthyThreshold": 3,
-                     "pickHostNameFromBackendHttpSettings": true,                     
+                     "pickHostNameFromBackendHttpSettings": true,
                      "port": "[parameters('backendPort')]"
                   }
                }
