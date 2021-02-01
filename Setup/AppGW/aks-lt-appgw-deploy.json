@@ -8,7 +8,7 @@
       },
       "projectName":{
          "type":"string",
-         "defaultValue": "loadtest1"
+         "defaultValue": "loadtest"
       },
       "vnetName":{
          "type":"string",
