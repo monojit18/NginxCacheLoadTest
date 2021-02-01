@@ -193,12 +193,7 @@
                      "timeout": 30,
                      "unhealthyThreshold": 3,
                      "pickHostNameFromBackendHttpSettings": true,
-                     "port": "[parameters('backendPort')]",
-                     "match": {                           
-                           "statusCodes": [
-                              "200-399"
-                        ]
-                     }
+                     "port": "[parameters('backendPort')]"                     
                   }
                }
             ],
@@ -207,8 +202,8 @@
                   "name":"[variables('appGwBackendPoolName')]",
                   "properties":{
                         "BackendAddresses":[{
-                           "fqdn": "[variables('appGwBackendPoolHostName')]",
-                           "ipAddress": "[parameters('backendIpAddress1')]"
+                           "fqdn": "[variables('appGwBackendPoolHostName')]"
+                           // "ipAddress": "[parameters('backendIpAddress1')]"
                         }]
                   }
                }
